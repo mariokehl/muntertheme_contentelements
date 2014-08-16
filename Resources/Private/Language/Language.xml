@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the muntertheme_contentelements in the backend</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+
+			<label index="muntertheme_contentelements">Munter Theme</label>
+            <label index="muntertheme_home">Home</label>
+            <label index="muntertheme_aboutus">About us</label>
+			<label index="muntertheme_portfolio">Portfolio</label>
+            <label index="muntertheme_process">Process</label>
+            <label index="muntertheme_clients">Clients</label>
+            <label index="muntertheme_contact">Contact</label>
+
+		</languageKey>
+	</data>
+</T3locallang>

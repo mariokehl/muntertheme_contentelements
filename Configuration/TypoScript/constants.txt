@@ -1,0 +1,7 @@
+plugin.muntertheme_contentelements {
+	view {
+		templateRootPath = EXT:muntertheme_contentelements/Resources/Private/Templates/
+		partialRootPath = EXT:muntertheme_contentelements/Resources/Private/Partials/
+		layoutRootPath = EXT:muntertheme_contentelements/Resources/Private/Layouts/
+	}
+}
