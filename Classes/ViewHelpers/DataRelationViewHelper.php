@@ -5,7 +5,7 @@ namespace Munter\MunterthemeContentelements\ViewHelpers;
  *  Copyright notice
  *
  *  (c) 2012 Benjamin Kott <info@bk2k.info>
- *
+ *  
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -28,31 +28,37 @@ namespace Munter\MunterthemeContentelements\ViewHelpers;
 /**
  * @author Benjamin Kott <info@bk2k.info>
  */
-class FalViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class DataRelationViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
 
     /**
-     * @var \TYPO3\CMS\Core\Resource\FileRepository
-     */
-    protected $fileRepository;
-
-    /**
-     * @param array $data
-     * @param string $as
+     * @param integer $uid
      * @param string $table
-     * @param string $field
-     *
+     * @param string $foreignField
+     * @param string $selectFields
+     * @param string $as
+     * @param string $sortby
+     * @param string $additionalWhere
+     * 
      * @return string
      */
-    public function render($data,$as = "items", $table = "tt_content", $field = "image") {
-        if(is_array($data) && $data['uid'] && $data[$field]){
-            $this->fileRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\FileRepository');
-            $items = $this->fileRepository->findByRelation($table, $field, $data['uid']);
+    public function render($uid,$table,$foreignField = "content_element",$selectFields = "*", $as = "items", $sortby = "sorting ASC", $additionalWhere = "") {
+
+        if($uid && $table && $foreignField){
+            $selectFields = $selectFields;
+            $fromTable    = $table;
+            $whereClause  = '1 AND `'.$foreignField.'` = \''.$uid.'\' AND deleted = 0 AND hidden = 0 '.$additionalWhere;
+            $groupBy      = '';
+            $orderBy      = $sortby;
+            $limit        = '';
+            $GLOBALS['TYPO3_DB']->store_lastBuiltQuery = 1;
+            $items = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($selectFields, $fromTable, $whereClause, $groupBy, $orderBy, $limit);
         }else{
             $items = NULL;
         }
+
         $this->templateVariableContainer->add($as, $items);
         $content = $this->renderChildren();
-        $this->templateVariableContainer->remove($as);
+        $this->templateVariableContainer->remove($as); 
 
         return $content;
 

@@ -130,10 +130,65 @@ $TCA['tt_content']['types']['muntertheme_clients']['showitem'] = "
 /**
  * Contact
  */
+$contact_column = array(
+    'tx_munterthemecontentelements_contact_item' => array(
+        'label' => 'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Language.xml:contact.general',
+        'config' => array(
+            'maxitems' => 5,
+            'type' => 'inline',
+            'foreign_table' => 'tx_munterthemecontentelements_contact_item',
+            'foreign_field' => 'content_element',
+            'appearance' => array(
+                'useSortable' => 1,
+                'collapseAll' => 1,
+                'expandSingle' => 1,
+                'levelLinksPosition' => 'bottom'
+            ),
+        ),
+    ),
+);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content',$contact_column);
+unset($contact_column);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_munterthemecontentelements_contact_item');
+$TCA['tx_munterthemecontentelements_contact_item'] = array(
+    'ctrl' => array(
+        'title'	=> 'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Language.xml:tx_munterthemecontentelements_contact_item',
+        'label' => 'title',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'cruser_id' => 'cruser_id',
+        'dividers2tabs' => TRUE,
+        'sortby' => 'sorting',
+        'versioningWS' => 2,
+        'versioning_followPages' => TRUE,
+        'origUid' => 't3_origuid',
+        'languageField' => 'sys_language_uid',
+        'transOrigPointerField' => 'l10n_parent',
+        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'delete' => 'deleted',
+        'type' => 'type',
+        'typeicon_column' => 'type',
+        'typeicons' => array(
+            'phone' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/contact_phone.gif',
+            'envelope' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/contact_envelope.gif',
+            'home' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/contact_home.gif',
+            'facebook' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/contact_facebook.gif',
+            'twitter' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/contact_twitter.gif',
+        ),
+        'enablecolumns' => array(
+            'disabled' => 'hidden',
+            'starttime' => 'starttime',
+            'endtime' => 'endtime',
+        ),
+        'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/ContactItem.php',
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'ext_icon.gif'
+    ),
+);
 $TCA['tt_content']['types']['muntertheme_contact']['showitem'] = "
     --palette--;LLL:EXT:cms/locallang_ttc.xml:palette.general;general,
     header,
     subheader,
+    tx_munterthemecontentelements_contact_item,
     --div--;LLL:EXT:cms/locallang_ttc.xml:tabs.appearance,
     --palette--;LLL:EXT:cms/locallang_ttc.xml:palette.frames;frames,
     --div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,

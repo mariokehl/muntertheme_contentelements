@@ -1,5 +1,5 @@
 {namespace munter = Munter\MunterthemeContentelements\ViewHelpers}
-<munter:fal data="{data}">
+<munter:dataRelation uid="{data.uid}" table="tx_munterthemecontentelements_contact_item" >
 
     <div class="row title-row">
         <div class="col-12 font-light"><f:format.raw>{data.header}</f:format.raw></div>
@@ -14,27 +14,10 @@
     </div><!-- /row -->
     <div id="contact-row-4" class="row">
         <div class="col-sm-1 hidden-sm">&nbsp;</div>
-        <div class="col-12 col-sm-2 with-hover-text">
-            <p><a target="_blank" href="#"><i class="fa fa-phone"></i></a></p>
-            <span class="hover-text font-light ">+44 4839-4343</span></a>
-        </div><!-- /col12 -->
-        <div class="col-12 col-sm-2 with-hover-text">
-            <p><a target="_blank" href="#"><i class="fa fa-envelope"></i></a></p>
-            <span class="hover-text font-light ">munter@blacktie.co</span></a>
-        </div><!-- /col12 -->
-        <div class="col-12 col-sm-2 with-hover-text">
-            <p><a target="_blank" href="#"><i class="fa fa-home"></i></a></p>
-            <span class="hover-text font-light ">London, England<br>zip code 98443</span></a>
-        </div><!-- /col12 -->
-        <div class="col-12 col-sm-2 with-hover-text">
-            <p><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></p>
-            <span class="hover-text font-light ">facebook/blacktie_co</span></a>
-        </div><!-- /col12 -->
-        <div class="col-12 col-sm-2 with-hover-text">
-            <p><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></p>
-            <span class="hover-text font-light ">@BlackTie_co</span></a>
-        </div><!-- /col12 -->
+        <f:for each="{items}" as="item" iteration="iteration">
+            <f:render partial="Contact/Item" arguments="{data:data,item:item,iteration:iteration}" />
+        </f:for>
         <div class="col-sm-1 hidden-sm">&nbsp;</div>
     </div><!-- /row -->
 
-</munter:fal>
+</munter:dataRelation>

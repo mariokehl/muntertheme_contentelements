@@ -15,6 +15,19 @@
             <label index="muntertheme_clients">Clients</label>
             <label index="muntertheme_contact">Contact</label>
 
+            <label index="contact.general">Contact information:</label>
+            <label index="contact.phone">Phone</label>
+            <label index="contact.envelope">E-Mail</label>
+            <label index="contact.home">Address</label>
+            <label index="contact.facebook">Facebook</label>
+            <label index="contact.twitter">Twitter</label>
+
+            <label index="tx_munterthemecontentelements_contact_item">Contact Item</label>
+            <label index="tx_munterthemecontentelements_contact_item.content_element">Content Element</label>
+            <label index="tx_munterthemecontentelements_contact_item.title">Title</label>
+            <label index="tx_munterthemecontentelements_contact_item.link">URL</label>
+            <label index="tx_munterthemecontentelements_contact_item.type">Type</label>
+
 		</languageKey>
 	</data>
 </T3locallang>
