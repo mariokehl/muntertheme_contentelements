@@ -40,6 +40,19 @@
             <label index="tx_munterthemecontentelements_aboutus_item.subtitle">Subtitle</label>
             <label index="tx_munterthemecontentelements_aboutus_item.type">Type</label>
 
+            <label index="process.general">Milestones:</label>
+            <label index="process.bolt">Listening</label>
+            <label index="process.cog">Discovery</label>
+            <label index="process.cloud">Brainstorming</label>
+            <label index="process.map-marker">Getting there</label>
+            <label index="process.gift">Delivering</label>
+
+            <label index="tx_munterthemecontentelements_process_item">Process Item</label>
+            <label index="tx_munterthemecontentelements_process_item.content_element">Content Element</label>
+            <label index="tx_munterthemecontentelements_process_item.title">Title</label>
+            <label index="tx_munterthemecontentelements_process_item.subtitle">Subtitle</label>
+            <label index="tx_munterthemecontentelements_process_item.type">Type</label>
+
 		</languageKey>
 	</data>
 </T3locallang>

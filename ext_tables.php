@@ -153,10 +153,65 @@ $TCA['tt_content']['types']['muntertheme_portfolio']['showitem'] = "
 /**
  * Process
  */
+$process_column = array(
+    'tx_munterthemecontentelements_process_item' => array(
+        'label' => 'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Language.xml:aboutus.general',
+        'config' => array(
+            'maxitems' => 5,
+            'type' => 'inline',
+            'foreign_table' => 'tx_munterthemecontentelements_process_item',
+            'foreign_field' => 'content_element',
+            'appearance' => array(
+                'useSortable' => 1,
+                'collapseAll' => 1,
+                'expandSingle' => 1,
+                'levelLinksPosition' => 'bottom'
+            ),
+        ),
+    ),
+);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content',$process_column);
+unset($process_column);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_munterthemecontentelements_process_item');
+$TCA['tx_munterthemecontentelements_process_item'] = array(
+    'ctrl' => array(
+        'title'	=> 'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Language.xml:tx_munterthemecontentelements_process_item',
+        'label' => 'title',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'cruser_id' => 'cruser_id',
+        'dividers2tabs' => TRUE,
+        'sortby' => 'sorting',
+        'versioningWS' => 2,
+        'versioning_followPages' => TRUE,
+        'origUid' => 't3_origuid',
+        'languageField' => 'sys_language_uid',
+        'transOrigPointerField' => 'l10n_parent',
+        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'delete' => 'deleted',
+        'type' => 'type',
+        'typeicon_column' => 'type',
+        'typeicons' => array(
+            'bolt' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/process_bolt.gif',
+            'cog' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/process_cog.gif',
+            'cloud' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/process_cloud.gif',
+            'map-marker' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/process_map-marker.gif',
+            'gift' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/process_gift.gif',
+        ),
+        'enablecolumns' => array(
+            'disabled' => 'hidden',
+            'starttime' => 'starttime',
+            'endtime' => 'endtime',
+        ),
+        'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/ProcessItem.php',
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'ext_icon.gif'
+    ),
+);
 $TCA['tt_content']['types']['muntertheme_process']['showitem'] = "
     --palette--;LLL:EXT:cms/locallang_ttc.xml:palette.general;general,
     header,
     bodytext,
+    tx_munterthemecontentelements_process_item,
     --div--;LLL:EXT:cms/locallang_ttc.xml:tabs.appearance,
     --palette--;LLL:EXT:cms/locallang_ttc.xml:palette.frames;frames,
     --div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,
