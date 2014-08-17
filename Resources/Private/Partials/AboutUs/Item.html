@@ -1,9 +1,10 @@
 {namespace munter = Munter\MunterthemeContentelements\ViewHelpers}
 <munter:fal data="{item}" as="contact" table="tx_munterthemecontentelements_contact_item">
 
-    <div class="col-12 col-sm-2 with-hover-text">
-        <p><a target="_blank" href="{item.link}"><i class="fa fa-{item.type}"></i></a></p>
-        <span class="hover-text font-light"><f:format.raw>{item.title}</f:format.raw></span></a>
+    <div class="col-12 col-lg-3 col-sm-6">
+        <p><i class="fa fa-{item.type}"></i></p>
+        <h2 class="font-thin"><f:format.raw>{item.title}</f:format.raw></h2>
+        <h4 class="font-thin"><f:format.raw>{item.subtitle}</f:format.raw></h4>
     </div><!-- /col12 -->
 
 </munter:fal>

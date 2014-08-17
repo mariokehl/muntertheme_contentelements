@@ -28,6 +28,18 @@
             <label index="tx_munterthemecontentelements_contact_item.link">URL</label>
             <label index="tx_munterthemecontentelements_contact_item.type">Type</label>
 
+            <label index="aboutus.general">Competencies:</label>
+            <label index="aboutus.eye">Visual Identity</label>
+            <label index="aboutus.laptop">Web Design</label>
+            <label index="aboutus.tablet">Mobile Apps</label>
+            <label index="aboutus.pencil">Development</label>
+
+            <label index="tx_munterthemecontentelements_aboutus_item">About Us Item</label>
+            <label index="tx_munterthemecontentelements_aboutus_item.content_element">Content Element</label>
+            <label index="tx_munterthemecontentelements_aboutus_item.title">Title</label>
+            <label index="tx_munterthemecontentelements_aboutus_item.subtitle">Subtitle</label>
+            <label index="tx_munterthemecontentelements_aboutus_item.type">Type</label>
+
 		</languageKey>
 	</data>
 </T3locallang>

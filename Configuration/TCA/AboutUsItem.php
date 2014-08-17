@@ -3,52 +3,45 @@ if(!defined('TYPO3_MODE')){
     die('Access denied.');
 }
 
-$TCA['tx_munterthemecontentelements_contact_item'] = array(
-    'ctrl' => $TCA['tx_munterthemecontentelements_contact_item']['ctrl'],
+$TCA['tx_munterthemecontentelements_aboutus_item'] = array(
+    'ctrl' => $TCA['tx_munterthemecontentelements_aboutus_item']['ctrl'],
     'interface' => array(
         'showRecordFieldList' => '
             hidden,
             content_element,
             type,
             title,
-            link,
+            subtitle,
         ',
     ),
     'types' => array(
-        'phone' => array('showitem' => '
+        'eye' => array('showitem' => '
             hidden;;1,
             content_element,
             type,
             title,
-            link,
+            subtitle,
         '),
-        'envelope' => array('showitem' => '
+        'laptop' => array('showitem' => '
             hidden;;1,
             content_element,
             type,
             title,
-            link,
+            subtitle,
         '),
-        'home' => array('showitem' => '
+        'tablet' => array('showitem' => '
             hidden;;1,
             content_element,
             type,
             title,
-            link,
+            subtitle,
         '),
-        'facebook' => array('showitem' => '
+        'pencil' => array('showitem' => '
             hidden;;1,
             content_element,
             type,
             title,
-            link,
-        '),
-        'twitter' => array('showitem' => '
-            hidden;;1,
-            content_element,
-            type,
-            title,
-            link,
+            subtitle,
         '),
     ),
     'palettes' => array(
@@ -64,23 +57,22 @@ $TCA['tx_munterthemecontentelements_contact_item'] = array(
         ),
         'content_element' => array(
             'exclude' => 0,
-            'label' => 'LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:tx_munterthemecontentelements_contact_item.content_element',
+            'label' => 'LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:tx_munterthemecontentelements_aboutus_item.content_element',
             'config' => array(
                 'type' => 'select',
                 'foreign_table' => 'tt_content',
-                'foreign_table_where' => 'AND tt_content.pid=###CURRENT_PID### AND tt_content.CType="muntertheme_contact"',
+                'foreign_table_where' => 'AND tt_content.pid=###CURRENT_PID### AND tt_content.CType="muntertheme_aboutus"',
                 'maxitems' => 1,
             ),
         ),
         'type' => array(
             'config' => array(
-                'default' => 'phone',
+                'default' => 'eye',
                 'items' => array(
-                    array('LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:contact.phone','phone'),
-                    array('LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:contact.envelope','envelope'),
-                    array('LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:contact.home','home'),
-                    array('LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:contact.facebook','facebook'),
-                    array('LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:contact.twitter','twitter'),
+                    array('LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:aboutus.eye','eye'),
+                    array('LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:aboutus.laptop','laptop'),
+                    array('LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:aboutus.tablet','tablet'),
+                    array('LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:aboutus.pencil','pencil'),
                 ),
                 'maxitems' => 1,
                 'size' => 1,
@@ -88,35 +80,24 @@ $TCA['tx_munterthemecontentelements_contact_item'] = array(
                 'exclude' => 1
 
             ),
-            'label' => 'LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:tx_munterthemecontentelements_contact_item.type',
+            'label' => 'LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:tx_munterthemecontentelements_aboutus_item.type',
         ),
         'title' => array(
             'exclude' => 0,
-            'label' => 'LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:tx_munterthemecontentelements_contact_item.title',
+            'label' => 'LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:tx_munterthemecontentelements_aboutus_item.title',
+            'config' => array(
+                'type' => 'input',
+                'size' => 25,
+                'eval' => 'trim,required'
+            ),
+        ),
+        'subtitle' => array(
+            'exclude' => 0,
+            'label' => 'LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:tx_munterthemecontentelements_aboutus_item.subtitle',
             'config' => array(
                 'type' => 'input',
                 'size' => 50,
                 'eval' => 'trim,required'
-            ),
-        ),
-        'link' => array(
-            'label' => 'LLL:EXT:muntertheme_contentelements/Resources/Private/Language/Language.xml:tx_munterthemecontentelements_contact_item.link',
-            'config' => array(
-                'default' => '#',
-                'type' => 'input',
-                'max' => 256,
-                'size' => 50,
-                'softref' => 'typolink',
-                'wizards' => array(
-                    'link' => array(
-                        'type' => 'popup',
-                        'icon' => 'link_popup.gif',
-                        'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1',
-                        'script' => 'browse_links.php?mode=wizard',
-                        'title' => 'LLL:EXT:cms/locallang_ttc.xml:header_link_formlabel',
-                    ),
-                    '_PADDING' => 2,
-                ),
             ),
         ),
     ),

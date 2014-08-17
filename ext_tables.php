@@ -69,10 +69,64 @@ $TCA['tt_content']['types']['muntertheme_home']['showitem'] = "
 /**
  * About us
  */
+$aboutus_column = array(
+    'tx_munterthemecontentelements_aboutus_item' => array(
+        'label' => 'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Language.xml:aboutus.general',
+        'config' => array(
+            'maxitems' => 4,
+            'type' => 'inline',
+            'foreign_table' => 'tx_munterthemecontentelements_aboutus_item',
+            'foreign_field' => 'content_element',
+            'appearance' => array(
+                'useSortable' => 1,
+                'collapseAll' => 1,
+                'expandSingle' => 1,
+                'levelLinksPosition' => 'bottom'
+            ),
+        ),
+    ),
+);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content',$aboutus_column);
+unset($aboutus_column);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_munterthemecontentelements_aboutus_item');
+$TCA['tx_munterthemecontentelements_aboutus_item'] = array(
+    'ctrl' => array(
+        'title'	=> 'LLL:EXT:'.$_EXTKEY.'/Resources/Private/Language/Language.xml:tx_munterthemecontentelements_aboutus_item',
+        'label' => 'title',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'cruser_id' => 'cruser_id',
+        'dividers2tabs' => TRUE,
+        'sortby' => 'sorting',
+        'versioningWS' => 2,
+        'versioning_followPages' => TRUE,
+        'origUid' => 't3_origuid',
+        'languageField' => 'sys_language_uid',
+        'transOrigPointerField' => 'l10n_parent',
+        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'delete' => 'deleted',
+        'type' => 'type',
+        'typeicon_column' => 'type',
+        'typeicons' => array(
+            'eye' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/aboutus_eye.gif',
+            'laptop' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/aboutus_laptop.gif',
+            'pencil' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/aboutus_pencil.gif',
+            'tablet' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/aboutus_tablet.gif',
+        ),
+        'enablecolumns' => array(
+            'disabled' => 'hidden',
+            'starttime' => 'starttime',
+            'endtime' => 'endtime',
+        ),
+        'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/AboutUsItem.php',
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'ext_icon.gif'
+    ),
+);
 $TCA['tt_content']['types']['muntertheme_aboutus']['showitem'] = "
     --palette--;LLL:EXT:cms/locallang_ttc.xml:palette.general;general,
     header,
     subheader,
+    tx_munterthemecontentelements_aboutus_item,
     --div--;LLL:EXT:cms/locallang_ttc.xml:tabs.appearance,
     --palette--;LLL:EXT:cms/locallang_ttc.xml:palette.frames;frames,
     --div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,
