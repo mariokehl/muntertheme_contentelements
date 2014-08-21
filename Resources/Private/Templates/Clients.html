@@ -2,26 +2,26 @@
 <munter:fal data="{data}">
 
     <div class="row title-row">
-        <div class="col-12 font-thin"><f:format.raw>{data.header}</f:format.raw></div>
+        <div class="col-xs-12 font-thin"><f:format.raw>{data.header}</f:format.raw></div>
     </div><!-- /row -->
     <div class="row line-row">
         <div class="hr">&nbsp;</div>
     </div><!-- /row -->
     <div class="row subtitle-row">
         <div class="col-sm-1 hidden-sm">&nbsp;</div>
-        <div class="col-12 col-sm-10 font-light"><f:format.raw>{data.bodytext}</f:format.raw></div>
+        <div class="col-xs-12 col-sm-10 font-light"><f:format.raw>{data.bodytext}</f:format.raw></div>
         <div class="col-sm-1 hidden-sm">&nbsp;</div>
     </div><!-- /row -->
     <f:if condition="{items}">
 
     <div class="row content-row">
-        <div class="col-1 col-sm-1 hidden-sm">&nbsp;</div>
+        <div class="col-xs-1 col-sm-1 hidden-sm">&nbsp;</div>
         <f:for each="{items}" as="image" iteration="iteration">
 
-            <div class="col-12 col-sm-2"><f:image src="{image.uid}" alt="" treatIdAsReference="1" /></div>
+            <div class="col-xs-12 col-sm-2"><f:image src="{image.uid}" alt="" treatIdAsReference="1" /></div>
 
         </f:for>
-        <div class="col-1 col-sm-1 hidden-sm">&nbsp;</div>
+        <div class="col-xs-1 col-sm-1 hidden-sm">&nbsp;</div>
     </div><!-- /row -->
 
     </f:if>

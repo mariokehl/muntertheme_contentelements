@@ -4,7 +4,7 @@
 
 <div class="row">
     <f:for each="{items}" as="image" iteration="iteration">
-    <div class="col-12 col-sm-6 col-lg-2">
+    <div class="col-xs-12 col-sm-6 col-lg-2">
         <a data-fancybox-group="portfolio" class="fancybox" href="{f:uri.image(src: image.uid, treatIdAsReference: 1, maxWidth: 1200, maxHeight: 1200 )}" title="{image.title}">
             <f:image class="thumb" src="{image.uid}" title="{image.title}" alt="{image.alternative}" width="452c" height="452c" treatIdAsReference="1" />
         </a>

@@ -2,19 +2,19 @@
 <munter:fal data="{data}">
 
     <div id="home-row-1" class="row clearfix">
-        <div class="col-12">
+        <div class="col-xs-12">
             <h1 class="font-semibold"><f:format.raw>{data.header}</f:format.raw></h1>
             <h4 class="font-thin"><f:format.raw>{data.subheader}</f:format.raw></h4>
             <br>
             <br>
-        </div><!-- /col-12 -->
+        </div><!-- /col-xs-12 -->
     </div><!-- /row -->
     <f:if condition="{items}">
 
     <div id="home-row-2" class="row clearfix">
         <f:for each="{items}" as="image" iteration="iteration">
 
-        <div class="col-12 col-sm-4">
+        <div class="col-xs-12 col-sm-4">
             <div class="home-hover navigation-slide" data-slide="{image.link}"><f:image src="{image.uid}" title="{image.title}" treatIdAsReference="1" /></div>
             <span>{image.title}</span>
         </div>
