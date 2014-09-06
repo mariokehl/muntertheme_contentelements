@@ -8,16 +8,16 @@
         <div class="hr">&nbsp;</div>
     </div><!-- /row -->
     <div class="row subtitle-row">
-        <div class="col-sm-1 hidden-sm">&nbsp;</div>
+        <div class="col-sm-1 hidden-xs">&nbsp;</div>
         <div class="col-xs-12 col-sm-10 font-light">{data.bodytext}</div>
-        <div class="col-sm-1 hidden-sm">&nbsp;</div>
+        <div class="col-sm-1 hidden-xs">&nbsp;</div>
     </div><!-- /row -->
     <div class="row content-row">
-        <div class="col-sm-1 hidden-sm">&nbsp;</div>
+        <div class="col-sm-1 hidden-xs">&nbsp;</div>
         <f:for each="{items}" as="item" iteration="iteration">
             <f:render partial="Process/Item" arguments="{data:data,item:item,iteration:iteration}" />
         </f:for>
-        <div class="col-sm-1 hidden-sm">&nbsp;</div>
+        <div class="col-sm-1 hidden-xs">&nbsp;</div>
     </div><!-- /row -->
 
 </munter:dataRelation>
